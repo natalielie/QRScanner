@@ -1,4 +1,4 @@
-package com.mugan86.qrscanner
+package com.chernonosmariia.qrscanner
 
 import org.junit.Test
 

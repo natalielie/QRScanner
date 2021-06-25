@@ -1,15 +1,10 @@
-package com.mugan86.qrscanner.utils
+package com.chernonosmariia.qrscanner.utils
 
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-
-/***********************************************
- * Created by Anartz Mugika on 22/3/14 (In Java)
- * Updated in Kotlin: 13/07/2018 (In Kotlin)
- ***********************************************/
 
 object DateTime {
 

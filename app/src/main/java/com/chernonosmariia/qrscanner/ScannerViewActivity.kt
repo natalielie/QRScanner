@@ -1,4 +1,4 @@
-package com.mugan86.qrscanner
+package com.chernonosmariia.qrscanner
 
 import android.app.Activity
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.util.Log
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import android.media.MediaPlayer
-import com.mugan86.qrscanner.data.Constants
+import com.chernonosmariia.qrscanner.Data.QRConstants
 
 
 /**
@@ -51,11 +51,11 @@ class ScannerViewActivity : Activity(), ZXingScannerView.ResultHandler {
         try {
             mScannerView!!.stopCamera() // Stop camera on pause
         } catch (e: Exception) {
-            Log.e(Constants.ERROR, e.message)
+            Log.e(QRConstants.ERROR, e.message)
         }
 
         val resultIntent = Intent()
-        resultIntent.putExtra(Constants.BAR_CODE, "")
+        resultIntent.putExtra(QRConstants.BAR_CODE, "")
         setResult(2, resultIntent)
         finish()
     }
@@ -63,25 +63,25 @@ class ScannerViewActivity : Activity(), ZXingScannerView.ResultHandler {
     override fun handleResult(rawResult: Result) {
         // Do something with the result here
 
-        Log.e(Constants.HANDLER, rawResult.text) // Prints scan results
-        Log.e(Constants.HANDLER, rawResult.barcodeFormat.toString()) // Prints the scan format (qrcode)
+        Log.e(QRConstants.HANDLER, rawResult.text) // Prints scan results
+        Log.e(QRConstants.HANDLER, rawResult.barcodeFormat.toString()) // Prints the scan format (qrcode)
 
         try {
             mScannerView!!.stopCamera()
 
             // Add Sound to comfirm correct take sound
-            MediaPlayer.create(this, Constants.SCAN_OK_SOUND).start()
+            MediaPlayer.create(this, QRConstants.SCAN_OK_SOUND).start()
             val resultIntent = Intent()
 
-            resultIntent.putExtra(Constants.BAR_CODE, rawResult.text)
+            resultIntent.putExtra(QRConstants.BAR_CODE, rawResult.text)
             setResult(2, resultIntent)
             finish()
 
-            println(Constants.STOP_CAMERA)
+            println(QRConstants.STOP_CAMERA)
             // Stop camera on pause
         } catch (e: Exception) {
-            Log.e(Constants.ERROR, e.message)
-            MediaPlayer.create(this, Constants.SCAN_ERROR_SOUND).start()
+            Log.e(QRConstants.ERROR, e.message)
+            MediaPlayer.create(this, QRConstants.SCAN_ERROR_SOUND).start()
         }
 
     }

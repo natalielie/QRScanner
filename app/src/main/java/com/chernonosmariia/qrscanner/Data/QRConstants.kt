@@ -1,11 +1,8 @@
-package com.mugan86.qrscanner.data
+package com.chernonosmariia.qrscanner.Data
 
-import com.mugan86.qrscanner.R
+import com.chernonosmariia.qrscanner.R
 
-/********************************************************************************
- * Created by Anartz Mugika (mugan86@gmail.com) on 13/7/18.
- ********************************************************************************/
-class Constants {
+class QRConstants {
 
     companion object{
 
@@ -19,4 +16,5 @@ class Constants {
         const val STOP_CAMERA = "************** Stop Camera**********"
 
     }
+
 }

@@ -1,6 +1,6 @@
-package com.mugan86.qrscanner
+package com.chernonosmariia.qrscanner
 
-import com.mugan86.qrscanner.utils.DateTime
+import com.chernonosmariia.qrscanner.utils.DateTime
 import android.Manifest
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v4.app.ActivityCompat
 import android.content.pm.PackageManager
 import android.support.v4.content.ContextCompat
-import com.mugan86.qrscanner.data.Constants
+import com.chernonosmariia.qrscanner.Data.QRConstants
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        val barcode = data.extras.getString(Constants.BAR_CODE)
+        val barcode = data.extras.getString(QRConstants.BAR_CODE)
 
         if (barcode == "") {
-            Toast.makeText(this@MainActivity,Constants.BAR_CODE_NOT_FOUND,Toast.LENGTH_LONG).show()
+            Toast.makeText(this@MainActivity,QRConstants.BAR_CODE_NOT_FOUND,Toast.LENGTH_LONG).show()
         } else {
             bar_code_id_txt?.text = barcode
             scan_data_txt.text = DateTime.currentDataTime
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
                     // permission was granted, yay! do the
                     // calendar task you need to do.
-                    Toast.makeText(this, Constants.PRESS_AGAIN_TO_SCAN, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, QRConstants.PRESS_AGAIN_TO_SCAN, Toast.LENGTH_LONG).show()
 
 
                 } else {
